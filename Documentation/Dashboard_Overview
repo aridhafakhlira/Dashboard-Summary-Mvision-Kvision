@@ -1,0 +1,33 @@
+Markdown
+
+# Gambaran Umum Dashboard Analisis Penjualan E-commerce
+
+Dashboard ini dirancang untuk memberikan pandangan komprehensif mengenai kinerja penjualan perusahaan e-commerce. Tujuannya adalah untuk membantu tim manajemen dan pemasaran dalam memantau tren, mengidentifikasi produk terlaris, serta memahami perilaku pembelian pelanggan.
+
+## Tujuan Utama Dashboard
+
+* **Pemantauan Kinerja Penjualan:** Melacak total penjualan, jumlah pesanan, dan rata-rata nilai pesanan dari waktu ke waktu.
+* **Analisis Produk:** Mengidentifikasi produk dengan kinerja terbaik dan terburuk, serta melihat tren penjualan per kategori produk.
+* **Wawasan Pelanggan:** Memahami segmentasi pelanggan, frekuensi pembelian, dan kontribusi pelanggan terhadap total pendapatan.
+* **Deteksi Anomali:** Membantu tim menemukan lonjakan atau penurunan penjualan yang tidak biasa untuk investigasi lebih lanjut.
+
+## Metrik Kunci (KPIs) yang Ditampilkan
+
+Dashboard ini fokus pada metrik-metrik penting berikut:
+
+* **Total Penjualan (Revenue):** Total nilai transaksi yang berhasil.
+* **Jumlah Pesanan (Total Orders):** Total pesanan yang diselesaikan.
+* **Rata-rata Nilai Pesanan (AOV - Average Order Value):** Total Penjualan / Jumlah Pesanan.
+* **Jumlah Pelanggan Aktif:** Total pelanggan yang melakukan pembelian dalam periode tertentu.
+* **Penjualan per Kategori Produk:** Distribusi penjualan berdasarkan kategori produk.
+* **Produk Terlaris:** Daftar produk dengan pendapatan tertinggi.
+
+## Cara Menggunakan Dashboard
+
+Dashboard ini interaktif. Pengguna dapat:
+
+* Memilih rentang tanggal untuk memfilter data.
+* Memfilter berdasarkan kategori produk atau status pesanan.
+* Mengklik visualisasi tertentu untuk drill-down (jika fitur ini diaktifkan di Metabase).
+
+Silakan merujuk ke [folder `screenshots/`](../screenshots) di repositori ini untuk melihat tampilan visual dari setiap bagian dashboard.
