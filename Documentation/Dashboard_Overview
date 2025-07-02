@@ -1,33 +1,39 @@
 Markdown
 
-# Gambaran Umum Dashboard Analisis Penjualan E-commerce
+# Gambaran Umum Dashboard Analisis Matriks Harian dan Perbandingan Kinerja Pelanggan dan Pendapatan Aktif
 
-Dashboard ini dirancang untuk memberikan pandangan komprehensif mengenai kinerja penjualan perusahaan e-commerce. Tujuannya adalah untuk membantu tim manajemen dan pemasaran dalam memantau tren, mengidentifikasi produk terlaris, serta memahami perilaku pembelian pelanggan.
+Dashboard ini dirancang untuk menyediakan gambaran cepat dan komprehensif mengenai kinerja bisnis utama M-Vision, Kvision DTH khususnya yang berkaitan dengan pelanggan dan pendapatan. 
+Tujuannya adalah untuk membantu tim manajemen memantau kinerja harian yang dapat memungkinkan identifikasi dini terhadap masalah atau peluang,Dengan data yang tersedia di satu tempat dan diperbarui secara berkala,
+pengambil keputusan dapat dengan cepat menilai situasi dan mengambil tindakan yang diperlukan, misalnya, meluncurkan promosi jika pelanggan menurun, atau mengidentifikasi area yang berkinerja baik.
 
 ## Tujuan Utama Dashboard
 
-* **Pemantauan Kinerja Penjualan:** Melacak total penjualan, jumlah pesanan, dan rata-rata nilai pesanan dari waktu ke waktu.
-* **Analisis Produk:** Mengidentifikasi produk dengan kinerja terbaik dan terburuk, serta melihat tren penjualan per kategori produk.
-* **Wawasan Pelanggan:** Memahami segmentasi pelanggan, frekuensi pembelian, dan kontribusi pelanggan terhadap total pendapatan.
+* **Pemantauan Kinerja Harian:** melacak metrik kunci seperti jumlah pelanggan aktif, pelanggan membayar (pasca-bayar dan prabayar) secara harian. 
+* **Akuntabilitas dan Transparansi:** Menyediakan metrik yang jelas dan dapat diakses untuk semua pemangku kepentingan yang relevan, sehingga meningkatkan akuntabilitas kinerja.
+* **Memahami Struktur Basis Pelanggan:** Melihat distribusi pelanggan antara prabayar dan pascabayar, yang sangat penting untuk strategi pemasaran, penawaran produk, dan manajemen layanan..
 * **Deteksi Anomali:** Membantu tim menemukan lonjakan atau penurunan penjualan yang tidak biasa untuk investigasi lebih lanjut.
+* **Memantau Pelanggan Berisiko:**Persentase "Pre Disconnection" menunjukkan jumlah pelanggan yang berisiko tinggi untuk putus layanan. Ini memungkinkan tim retention untuk mengambil tindakan proaktif.
 
 ## Metrik Kunci (KPIs) yang Ditampilkan
 
 Dashboard ini fokus pada metrik-metrik penting berikut:
 
-* **Total Penjualan (Revenue):** Total nilai transaksi yang berhasil.
-* **Jumlah Pesanan (Total Orders):** Total pesanan yang diselesaikan.
-* **Rata-rata Nilai Pesanan (AOV - Average Order Value):** Total Penjualan / Jumlah Pesanan.
-* **Jumlah Pelanggan Aktif:** Total pelanggan yang melakukan pembelian dalam periode tertentu.
-* **Penjualan per Kategori Produk:** Distribusi penjualan berdasarkan kategori produk.
-* **Produk Terlaris:** Daftar produk dengan pendapatan tertinggi.
+* **Total Pelanggan Aktif:** segmentasinya (Postpaid, Prepaid).
+* **Total Pelanggan yang Membayar:** segmentasinya (Postpaid, Prepaid).
+* **Tren Harian:** semua metrik di atas (perubahan persentase dan nilai hari sebelumnya).
+* **Komposisi Proporsi:** total pelanggan berdasarkan status (Prepaid, Postpaid, Pre Disconnection).
+* **Komposisi Pendapatan Koleksi Bulan Berjalan (MTD) :** segmen (Prepaid, Postpaid).
+* **Month-To-Date Top Up - untuk bulan berjalan:** Total nilai nominal top-up yang telah terkumpul sejak awal bulan hingga saat ini.
+* **Burn Package (Yesterday): :** Total nilai nominal paket yang "terbakar" atau digunakan/dikonsumsi kemarin 
+* **Top Up Voucher (Yesterday):** Total nilai nominal top-up voucher yang dilakukan kemarin.
+* **Sub-Summary Chart:** menunjukkan komposisi pelanggan berdasarkan kategori atau paket tertentu.
+* **New Subs (Yesterday):** Jumlah pelanggan baru yang bergabung kemarin.
+
 
 ## Cara Menggunakan Dashboard
 
 Dashboard ini interaktif. Pengguna dapat:
 
-* Memilih rentang tanggal untuk memfilter data.
-* Memfilter berdasarkan kategori produk atau status pesanan.
 * Mengklik visualisasi tertentu untuk drill-down (jika fitur ini diaktifkan di Metabase).
 
 Silakan merujuk ke [folder `screenshots/`](../screenshots) di repositori ini untuk melihat tampilan visual dari setiap bagian dashboard.
