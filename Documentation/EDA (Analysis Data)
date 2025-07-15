@@ -1,1 +1,125 @@
-**
+*Pendahuluan:*
+
+* **Judul EDA: "K- Vision,M-Vision DTH Dashboard - Exploratory Data Analysis" **
+Tujuan proyek: Untuk menyediakan visibilitas yang cepat, komprehensif, dan actionable terhadap kinerja bisnis serta memberdayakan manajemen untuk mengelola, 
+mengoptimalkan, dan mengembangkan bisnis TV berbayar secara proaktif.
+
+Sumber Data: Database SQL dan Database Oracle
+
+1. database connection :
+
+A. Connection Name: Toad for Oracle Database
+
+Username: PROD
+
+Password: xxxx
+
+Hostname: 192.168.176.82
+
+Port: 1521
+
+Database: DWH82
+
+B. Connection Name: Toad for Oracle Database
+
+Username: PROD
+
+Password: xxxx
+
+Hostname: 192.168.176.82
+
+Port: 1521
+
+Database: DWH82
+
+
+Klik Test → jika berhasil, klik Connect
+
+2. Load Data
+
+* Matriks Summary MV*
+
+** Database Oracle :
+
+Select * from skysys_f_customer
+Select * from f_f_new_sales_so_dtl
+Select * from prod.F_SUMMARY_NETADD_MVISION  ---> ini adalah tabel summary dari tabel s_customer_netadd gabungan dari beberapa 
+tabel yang sudah di filter,kemudian dihubungkan dengan ETL ke dalam 1 tabel summary untuk memudahkan dalam pengecekan data:
+insert into s_customer_netadd values (TGL_REPORT,'CUSTOMER_ID','DATE_PROCESS','CUST_STATUS','CUSTOMER_CLASS','CUSTOMER_TYPE')
+
+select * from F_DASH_MV_COLLECTION
+
+* Matriks Summary KV*
+
+Select * from kv_tr_new_subs / select * from tr_new_subs
+Select * from kv_topup_voucher / select * from topup_voucher
+Select * from kv_tr_package_burn/ select * from tr_package_burn
+Select * from F_SUMMARY_NETADD_KVISION  --> ini adalah tabel summary gabungan dari beberapa 
+tabel yang sudah di filter,kemudian dihubungkan dengan ETL ke dalam 1 tabel summary untuk memudahkan dalam pengecekan data.Beberapa sample
+tabel yang dijoinkan untuk di insert ke tabel summary adalah : tabel BODREPORT, TR_NEW_SUBS, SMS_burnpackage,S_CUST_NETTADD_OTO_KVN
+
+
+3. Data Overview & Cleaning
+
+* Struktur Tabel & Tipe data *
+*** skysys_f_customer : customer_id (INTEGER)(PK) --> isi data bisa di cek pada 
+
+
+** memastikan data pada tabel tidak ada yang null**
+SELECT * FROM skysys_f_customer
+where customer_id is null or customer_name is null 
+or cust_region is null or customer_class is null
+
+** memastikan data pada table tidak duplicate**
+SELECT customer_id,COUNT(*)
+FROM skysys_f_customer
+GROUP BY customer_id
+HAVING COUNT(*) > 1;
+
+*** f_summary_netadd_mvision: tabel summary (dump) dari beberapa job query sesuai dengan deskripsi dan total subsnya.**
+isi dari tabel tersebut bisa di cek di 
+
+* Beberapa tabel yang insert ke tabel f_summary_nettadd_mvision* (Tabel dibawah ini tidak semua saya sebutkan, karena beberapa tabel bersifat
+residentia)
+1. Newsales postpaid dan Newsales Prepaid :*memastikan tidak ada data yang duplicate* 
+SELECT customer_id,count(*) FROM dev.s_customer_netadd
+GROUP BY customer_id
+HAVING COUNT(*) > 1;
+
+2. Collection :*memastikan data tidak null*
+select * from c_subs_account@dblink_skyprod_36
+where amount is null or date_transaction is null
+
+3.SELECT SUBS_ID,count(*) FROM KV_TR_NEW_SUBS --> tabel new sales kvision 
+  WHERE to_char(DATE_PROCESS,'dd/mm/yyyy')='08/07/2025'
+  group by subs_id
+  having count(*) > 1 * memastikan tidak ada data yang duplicate*
+
+*Beberapa tabel yang insert ke tabel f_summary_nettadd_kvision* (Tabel dibawah ini tidak semua saya sebutkan, karena beberapa tabel bersifat
+residential)
+
+4. SELECT * FROM kv_topup_voucher *memastikan amount tidak ada yang null*
+WHERE TO_CHAR(date_entry, 'DD/MM/YYYY') = TO_CHAR(SYSDATE - 1, 'DD/MM/YYYY')
+and amount is  null
+
+5. select subs_id, sales_code, count(*) from kv_tr_package_burn  --> memastikan subs_id dan sales_code tidak lebih dari 1
+where subs_id is null or sales_code is null or product_name is null
+and flag='2025'
+group by subs_id, sales_code
+having count(*) > 1
+
+select * from kv_tr_package_burn --> memastikan tidak ada data yang kosong
+where subs_id is null or sales_code is null or product_name is null
+and flag='2025'
+
+
+
+
+
+
+
+
+
+
+
+
